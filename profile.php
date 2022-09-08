@@ -1,7 +1,7 @@
 <?php
 include 'connect.php';
 include 'checkLogin.php';
-if (isset($_POST['sub'])) {
+if (isset($_POST['sub-add']) || isset($_POST['sub-edit'])) {
   $t = $_POST['text'];
   $u = $_POST['user'];
   $p = $_POST['pass'];
@@ -13,12 +13,14 @@ if (isset($_POST['sub'])) {
   } else {
     $img = $_POST['img1'];
   }
+if (isset($_POST['sub-edit']))
   $m = "update reg set name='$t',username='$u',password='$p',city='$c',gender='$g',image='$img' where id='$_SESSION[id]'";
   mysqli_query($con, $m);
-  header('location:home.php');
-
+if (isset($_POST['sub-add'])) {
   $i = "insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
   mysqli_query($con, $i);
+}
+
 }
 $s = "select*from reg where id='$_SESSION[id]'";
 $qu = mysqli_query($con, $s);
@@ -28,7 +30,7 @@ $f = mysqli_fetch_assoc($qu);
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="utf-8">
@@ -233,8 +235,8 @@ $f = mysqli_fetch_assoc($qu);
                 <div class="card-header p-2">
                   <ul class="nav nav-pills">
                     <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Users</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Add user</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Adduser" data-toggle="tab">Add user</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#edit" data-toggle="tab">Edit User</a></li>
                   </ul>
                 </div><!-- /.card-header -->
                 <div class="card-body">
@@ -249,6 +251,12 @@ $f = mysqli_fetch_assoc($qu);
                           <th>
                             Username
                           </th>
+                          <th>
+                            Genero
+                          </th>
+                          <th>
+                            Senha
+                          </th>
                         </tr>
 
 
@@ -259,13 +267,19 @@ $f = mysqli_fetch_assoc($qu);
                           <td>
                             <?php echo $f['username'] ?>
                           </td>
+                          <td>
+                            <?php echo $f['gender'] ?>
+                          </td>
+                          <td>
+                            <?php echo $f['password'] ?>
+                          </td>
                         </tr>
                       </table>
 
                     </div>
 
 
-                    <div class="tab-pane" id="settings">
+                    <div class="tab-pane" id="Adduser">
                       <form class="form-horizontal" method="POST" enctype="multipart/form-data">
                         <div class="form-group row">
                           <label for="inputName" class="col-sm-2 col-form-label">Name</label>
@@ -322,7 +336,7 @@ $f = mysqli_fetch_assoc($qu);
                         </div>
                         <div class="form-group row">
                           <div class="offset-sm-2 col-sm-10">
-                            <input type="submit" class="btn btn-danger" value="Concluir" name="sub">
+                            <input type="submit" class="btn btn-danger" value="Concluir" name="sub-add">
                             <!-- <button type="submit" class="btn btn-danger">Submit</button> -->
                           </div>
                         </div>
@@ -330,38 +344,67 @@ $f = mysqli_fetch_assoc($qu);
                     </div>
 
 
-                    <!-- TIMELINE abaixo -->
+                    <!-- edit abaixo -->
 
-                    <div class="tab-pane" id="timeline">
+                    <div class="tab-pane" id="edit">
                       <form class="form-horizontal" method="POST" enctype="multipart/form-data">
                         <div class="form-group row">
                           <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                           <div class="col-sm-10">
-                            <input type="text" name="text" class="form-control">
+                            <input type="text" name="text" class="form-control" value="<?php echo $f['name'] ?>">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label for="inputName" class="col-sm-2 col-form-label">Username</label>
                           <div class="col-sm-10">
-                            <input type="text" name="user" class="form-control">
+                            <input type="text" name="user" class="form-control" value="<?php echo $f['username'] ?>">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label for="inputEmail" class="col-sm-2 col-form-label">Password</label>
                           <div class="col-sm-10">
-                            <input type="password" name="pass">
+                            <input type="password" name="pass" value="<?php echo $f['password'] ?>">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label for="inputExperience" class="col-sm-2 col-form-label">Gender</label>
-                          <input type="radio" name="gen" id="gen" value="male">male
-                          <input type="radio" name="gen" id="gen" value="female">female
+                          <div class="col-sm-10">
+                            <?php if ($f['gender'] == 'male') {
+                            ?>
 
-                          <div class="form-group row">
-                            <div class="offset-sm-2 col-sm-10">
-                              <input type="submit" class="btn btn-danger" value="Concluir" name="sub">
-                              <!-- <button type="submit" class="btn btn-danger">Submit</button> -->
-                            </div>
+                              <input type="radio" name="gen" id="gen" value="male" checked>
+                            <?php
+                            } else {
+                            ?>
+
+                              <input type="radio" name="gen" id="gen" value="male">
+                              <?php }
+                              ?>male
+                              <?php if ($f['gender'] == 'female') {
+                              ?>
+                                <input type="radio" name="gen" id="gen" value="female" checked>
+                              <?php
+                              } else {
+                              ?>
+
+                                <input type="radio" name="gen" id="gen" value="female">
+                              <?php } ?>
+                              female
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputSkills" class="col-sm-2 col-form-label">Image</label>
+                          <div class="col-sm-10">
+                            <br>
+                            <input type="file" name="f1">
+                            <br>
+                            <input type="hidden" name="img1" value="<?php echo $f['image'] ?>">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="offset-sm-2 col-sm-10">
+                            <input type="submit" class="btn btn-danger" value="Concluir" name="sub-edit">
+                            <!-- <button type="submit" class="btn btn-danger">Submit</button> -->
                           </div>
                         </div>
                       </form>

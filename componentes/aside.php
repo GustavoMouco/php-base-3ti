@@ -27,7 +27,7 @@ include 'reg.php'
           <img src="<?php echo $f['image']?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo $f['username'];?></a>
+          <a href="profile.php" class="d-block"><?php echo $f['username'];?></a>
         </div>
       </div>
 
