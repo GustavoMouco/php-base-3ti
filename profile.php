@@ -5,7 +5,6 @@ if (isset($_POST['sub-add']) || isset($_POST['sub-edit'])) {
   $t = $_POST['text'];
   $u = $_POST['user'];
   $p = $_POST['pass'];
-  $c = $_POST['city'];
   $g = $_POST['gen'];
   if ($_FILES['f1']['name']) {
     move_uploaded_file($_FILES['f1']['tmp_name'], "image/" . $_FILES['f1']['name']);
@@ -14,10 +13,10 @@ if (isset($_POST['sub-add']) || isset($_POST['sub-edit'])) {
     $img = $_POST['img1'];
   }
 if (isset($_POST['sub-edit']))
-  $m = "update reg set name='$t',username='$u',password='$p',city='$c',gender='$g',image='$img' where id='$_SESSION[id]'";
+  $m = "update reg set name='$t',username='$u',password='$p',gender='$g',image='$img' where id='$_SESSION[id]'";
   mysqli_query($con, $m);
 if (isset($_POST['sub-add'])) {
-  $i = "insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
+  $i = "insert into reg(name,username,password,image,gender,)value('$t','$u','$p','$img','$g')";
   mysqli_query($con, $i);
 }
 
