@@ -38,6 +38,15 @@ CREATE TABLE `reg` (
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+CREATE TABLE `reg` (
+  `name` varchar(20) NOT NULL,
+  `Email` varchar(20) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `Foto de Perfil` varchar(50) NOT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Extraindo dados da tabela `reg`
 --
@@ -45,6 +54,8 @@ CREATE TABLE `reg` (
 INSERT INTO `reg` (`name`, `username`, `password`, `city`, `image`, `gender`, `id`) VALUES
 ('Bikash', 'bikash', 'bikash', 'lko', 'image/images.png', 'male', 2);
 
+INSERT INTO `reg` (`name`, `Email`, `password`, `Foto de Perfil`, `id`) VALUES
+('Bikash', 'bikash@gmail.com', 'bikash','image/images.png', 'male', 2);
 --
 -- Índices para tabelas despejadas
 --

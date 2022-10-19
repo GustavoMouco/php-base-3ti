@@ -5,18 +5,18 @@ if (isset($_POST['sub-add']) || isset($_POST['sub-edit'])) {
   $t = $_POST['text'];
   $u = $_POST['user'];
   $p = $_POST['pass'];
-  $g = $_POST['gen'];
   if ($_FILES['f1']['name']) {
     move_uploaded_file($_FILES['f1']['tmp_name'], "image/" . $_FILES['f1']['name']);
     $img = "image/" . $_FILES['f1']['name'];
   } else {
     $img = $_POST['img1'];
   }
-if (isset($_POST['sub-edit']))
-  $m = "update reg set name='$t',username='$u',password='$p',gender='$g',image='$img' where id='$_SESSION[id]'";
+if (isset($_POST['sub-edit'])){
+  $m = "update reg set name='$t',Email='$u',password='$p',Foto de Perfil='$img' where id='$_SESSION[id]'";
   mysqli_query($con, $m);
+}
 if (isset($_POST['sub-add'])) {
-  $i = "insert into reg(name,username,password,image,gender,)value('$t','$u','$p','$img','$g')";
+  $i = "insert into reg(name,Email,password,Foto de Perfil)values('$t','$u','$p','$img')";
   mysqli_query($con, $i);
 }
 
@@ -216,7 +216,7 @@ $f = mysqli_fetch_assoc($qu);
               <div class="card card-primary card-outline">
                 <div class="card-body box-profile">
                   <div class="text-center">
-                    <img src="<?php echo $f['image'] ?>" width="100px" height="100px">
+                    <img src="<?php echo $f['Foto de Perfil'] ?>" width="100px" height="100px">
                   </div>
 
                   <h3 class="profile-username text-center"><?php echo $f['name'] ?></h3>
@@ -248,11 +248,9 @@ $f = mysqli_fetch_assoc($qu);
                             Name
                           </th>
                           <th>
-                            Username
+                            Email
                           </th>
-                          <th>
-                            Genero
-                          </th>
+                        
                           <th>
                             Senha
                           </th>
@@ -264,11 +262,9 @@ $f = mysqli_fetch_assoc($qu);
                             <?php echo $f['name'] ?>
                           </td>
                           <td>
-                            <?php echo $f['username'] ?>
+                            <?php echo $f['Email'] ?>
                           </td>
-                          <td>
-                            <?php echo $f['gender'] ?>
-                          </td>
+                          
                           <td>
                             <?php echo $f['password'] ?>
                           </td>
@@ -287,9 +283,9 @@ $f = mysqli_fetch_assoc($qu);
                           </div>
                         </div>
                         <div class="form-group row">
-                          <label for="inputName" class="col-sm-2 col-form-label">Username</label>
+                          <label for="inputName" class="col-sm-2 col-form-label">Email</label>
                           <div class="col-sm-10">
-                            <input type="text" name="user" class="form-control" value="<?php echo $f['username'] ?>">
+                            <input type="text" name="user" class="form-control" value="<?php echo $f['Email'] ?>">
                           </div>
                         </div>
                         <div class="form-group row">
@@ -298,39 +294,14 @@ $f = mysqli_fetch_assoc($qu);
                             <input type="password" name="pass" value="<?php echo $f['password'] ?>">
                           </div>
                         </div>
+                       
                         <div class="form-group row">
-                          <label for="inputExperience" class="col-sm-2 col-form-label">Gender</label>
-                          <div class="col-sm-10">
-                            <?php if ($f['gender'] == 'male') {
-                            ?>
-
-                              <input type="radio" name="gen" id="gen" value="male" checked>
-                            <?php
-                            } else {
-                            ?>
-
-                              <input type="radio" name="gen" id="gen" value="male">
-                              <?php }
-                              ?>male
-                              <?php if ($f['gender'] == 'female') {
-                              ?>
-                                <input type="radio" name="gen" id="gen" value="female" checked>
-                              <?php
-                              } else {
-                              ?>
-
-                                <input type="radio" name="gen" id="gen" value="female">
-                              <?php } ?>
-                              female
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="inputSkills" class="col-sm-2 col-form-label">Image</label>
+                          <label for="inputSkills" class="col-sm-2 col-form-label">Foto de Perfil</label>
                           <div class="col-sm-10">
                             <br>
                             <input type="file" name="f1">
                             <br>
-                            <input type="hidden" name="img1" value="<?php echo $f['image'] ?>">
+                            <input type="hidden" name="img1" value="<?php echo $f['Foto de Perfil'] ?>">
                           </div>
                         </div>
                         <div class="form-group row">
@@ -354,9 +325,9 @@ $f = mysqli_fetch_assoc($qu);
                           </div>
                         </div>
                         <div class="form-group row">
-                          <label for="inputName" class="col-sm-2 col-form-label">Username</label>
+                          <label for="inputName" class="col-sm-2 col-form-label">Email</label>
                           <div class="col-sm-10">
-                            <input type="text" name="user" class="form-control" value="<?php echo $f['username'] ?>">
+                            <input type="text" name="user" class="form-control" value="<?php echo $f['Email'] ?>">
                           </div>
                         </div>
                         <div class="form-group row">
@@ -365,39 +336,14 @@ $f = mysqli_fetch_assoc($qu);
                             <input type="password" name="pass" value="<?php echo $f['password'] ?>">
                           </div>
                         </div>
+                       
                         <div class="form-group row">
-                          <label for="inputExperience" class="col-sm-2 col-form-label">Gender</label>
-                          <div class="col-sm-10">
-                            <?php if ($f['gender'] == 'male') {
-                            ?>
-
-                              <input type="radio" name="gen" id="gen" value="male" checked>
-                            <?php
-                            } else {
-                            ?>
-
-                              <input type="radio" name="gen" id="gen" value="male">
-                              <?php }
-                              ?>male
-                              <?php if ($f['gender'] == 'female') {
-                              ?>
-                                <input type="radio" name="gen" id="gen" value="female" checked>
-                              <?php
-                              } else {
-                              ?>
-
-                                <input type="radio" name="gen" id="gen" value="female">
-                              <?php } ?>
-                              female
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="inputSkills" class="col-sm-2 col-form-label">Image</label>
+                          <label for="inputSkills" class="col-sm-2 col-form-label">Foto de Perfil</label>
                           <div class="col-sm-10">
                             <br>
                             <input type="file" name="f1">
                             <br>
-                            <input type="hidden" name="img1" value="<?php echo $f['image'] ?>">
+                            <input type="hidden" name="img1" value="<?php echo $f['Foto de Perfil'] ?>">
                           </div>
                         </div>
                         <div class="form-group row">

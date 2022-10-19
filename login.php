@@ -6,7 +6,7 @@ $Error_message = '';
 if(isset($_POST['sub'])){
     $u=$_POST['Email'];
     $p=$_POST['Password'];
-    $s= "select * from reg where username='$u' and password= '$p'";   
+    $s= "select * from reg where Email='$u' and password= '$p'";   
    $qu= mysqli_query($con, $s);
    if(mysqli_num_rows($qu)>0){
       $f= mysqli_fetch_assoc($qu);
