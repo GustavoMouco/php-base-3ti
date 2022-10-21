@@ -54,7 +54,7 @@ CREATE TABLE `reg` (
 INSERT INTO `reg` (`name`, `username`, `password`, `city`, `image`, `gender`, `id`) VALUES
 ('Bikash', 'bikash', 'bikash', 'lko', 'image/images.png', 'male', 2);
 
-INSERT INTO `reg` (`name`, `Email`, `password`, `Foto de Perfil`, `id`) VALUES
+INSERT INTO `reg` (`name`, `Email`, `password`, `FotoPerfil`, `id`) VALUES
 ('Bikash', 'bikash@gmail.com', 'bikash','image/images.png', 'male', 2);
 --
 -- Índices para tabelas despejadas

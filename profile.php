@@ -12,11 +12,11 @@ if (isset($_POST['sub-add']) || isset($_POST['sub-edit'])) {
     $img = $_POST['img1'];
   }
 if (isset($_POST['sub-edit'])){
-  $m = "update reg set name='$t',Email='$u',password='$p',Foto de Perfil='$img' where id='$_SESSION[id]'";
+  $m = "update reg set name='$t',Email='$u',password='$p',FotoPerfil='$img' where id='$_SESSION[id]'";
   mysqli_query($con, $m);
 }
 if (isset($_POST['sub-add'])) {
-  $i = "insert into reg(name,Email,password,Foto de Perfil)values('$t','$u','$p','$img')";
+  $i = "insert into reg(name,Email,password,FotoPerfil)values('$t','$u','$p','$img')";
   mysqli_query($con, $i);
 }
 
@@ -216,7 +216,7 @@ $f = mysqli_fetch_assoc($qu);
               <div class="card card-primary card-outline">
                 <div class="card-body box-profile">
                   <div class="text-center">
-                    <img src="<?php echo $f['Foto de Perfil'] ?>" width="100px" height="100px">
+                    <img src="<?php echo $f['FotoPerfil'] ?>" width="100px" height="100px">
                   </div>
 
                   <h3 class="profile-username text-center"><?php echo $f['name'] ?></h3>
@@ -301,7 +301,7 @@ $f = mysqli_fetch_assoc($qu);
                             <br>
                             <input type="file" name="f1">
                             <br>
-                            <input type="hidden" name="img1" value="<?php echo $f['Foto de Perfil'] ?>">
+                            <input type="hidden" name="img1" value="<?php echo $f['FotoPerfil'] ?>">
                           </div>
                         </div>
                         <div class="form-group row">
@@ -343,7 +343,7 @@ $f = mysqli_fetch_assoc($qu);
                             <br>
                             <input type="file" name="f1">
                             <br>
-                            <input type="hidden" name="img1" value="<?php echo $f['Foto de Perfil'] ?>">
+                            <input type="hidden" name="img1" value="<?php echo $f['FotoPerfil'] ?>">
                           </div>
                         </div>
                         <div class="form-group row">
