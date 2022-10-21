@@ -43,7 +43,7 @@ CREATE TABLE `reg` (
   `name` varchar(20) NOT NULL,
   `Email` varchar(20) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `Foto de Perfil` varchar(50) NOT NULL,
+  `FotoPerfil` varchar(50) NOT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

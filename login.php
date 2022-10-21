@@ -105,6 +105,13 @@ if(isset($_POST['sub'])){
           </div>
           <!-- /.col -->
         </div>
+        <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="./profile.php" class="nav-link active">
+                  <p>Registre-se aqui
+                  </p>
+                </a>
+              </li>
       </form>
 
  

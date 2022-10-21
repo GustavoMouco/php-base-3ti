@@ -59,20 +59,12 @@ include 'reg.php'
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="./profile.php" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editar</p>
+                  <p>Editar Usuario</p>
                 </a>
                 </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./profile.php" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Adicionar usuario
-                  </p>
-                </a>
-              </li>
-
-      </nav>
+            
+         </nav>
+      
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
