@@ -54,9 +54,9 @@ $f = mysqli_fetch_assoc($qu);
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="home.php" class="nav-link">Home</a>
+          <a href="Login.php" class="nav-link">Login</a>
         </li>
-     
+       
       </ul>
 
       <!-- Right navbar links -->
@@ -84,90 +84,8 @@ $f = mysqli_fetch_assoc($qu);
         </li>
 
         <!-- Messages Dropdown Menu -->
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="far fa-comments"></i>
-            <span class="badge badge-danger navbar-badge">3</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="./AdminLTE-3.2.0/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    Brad Diesel
-                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">Call me whenever you can...</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="./AdminLTE-3.2.0/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    John Pierce
-                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">I got your message bro</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="./AdminLTE-3.2.0/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    Nora Silvester
-                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">The subject goes here</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-          </div>
-        </li>
         <!-- Notifications Dropdown Menu -->
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="far fa-bell"></i>
-            <span class="badge badge-warning navbar-badge">15</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <span class="dropdown-item dropdown-header">15 Notifications</span>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-envelope mr-2"></i> 4 new messages
-              <span class="float-right text-muted text-sm">3 mins</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-users mr-2"></i> 8 friend requests
-              <span class="float-right text-muted text-sm">12 hours</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-file mr-2"></i> 3 new reports
-              <span class="float-right text-muted text-sm">2 days</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-          </div>
-        </li>
+        
         <li class="nav-item">
           <a class="nav-link" data-widget="fullscreen" href="#" role="button">
             <i class="fas fa-expand-arrows-alt"></i>
@@ -183,7 +101,7 @@ $f = mysqli_fetch_assoc($qu);
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <?php include 'componentes/aside.php' ?>
+    <?php include 'componentes/aside2.php' ?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -192,14 +110,9 @@ $f = mysqli_fetch_assoc($qu);
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Profile</h1>
+              <h1>Cadastro</h1>
             </div>
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">User Profile</li>
-              </ol>
-            </div>
+         
           </div>
         </div><!-- /.container-fluid -->
       </section>
@@ -211,18 +124,7 @@ $f = mysqli_fetch_assoc($qu);
             <div class="col-md-3">
 
               <!-- Profile Image -->
-              <div class="card card-primary card-outline">
-                <div class="card-body box-profile">
-                  <div class="text-center">
-                    <img src="<?php echo $f['FotoPerfil'] ?>" width="100px" height="100px">
-                  </div>
-
-                  <h3 class="profile-username text-center"><?php echo $f['name'] ?></h3>
-
-                  <p class="text-muted text-center">Admin</p>
-                </div>
-                <!-- /.card-body -->
-              </div>
+           
               <!-- /.card -->
 
             </div>
@@ -231,53 +133,20 @@ $f = mysqli_fetch_assoc($qu);
               <div class="card">
                 <div class="card-header p-2">
                   <ul class="nav nav-pills">
-                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">User</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#edit" data-toggle="tab">Edit User</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="#Adduser" data-toggle="tab">Add user</a></li>
+                   
                   </ul>
                 </div><!-- /.card-header -->
                 <div class="card-body">
                   <div class="tab-content">
 
-                    <div class="active tab-pane" id="activity">
-                      <table border='1'>
-                        <tr>
-                          <th>
-                            Name
-                          </th>
-                          <th>
-                            Email
-                          </th>
-                        
-                          <th>
-                            Senha
-                          </th>
-                        </tr>
+                    
 
 
-                        <tr>
-                          <td>
-                            <?php echo $f['name'] ?>
-                          </td>
-                          <td>
-                            <?php echo $f['Email'] ?>
-                          </td>
-                          
-                          <td>
-                            <?php echo $f['password'] ?>
-                          </td>
-                        </tr>
-                      </table>
-
-                    </div>
-
-
-                 
-
-                    <!-- edit abaixo -->
-
-                    <div class="tab-pane" id="edit">
+                   
                       <form class="form-horizontal" method="POST" enctype="multipart/form-data">
-                        <div class="form-group row">
+                        <div class="form-group row" >
                           <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                           <div class="col-sm-10">
                             <input type="text" name="text" class="form-control" value="<?php echo $f['name'] ?>">
@@ -307,12 +176,20 @@ $f = mysqli_fetch_assoc($qu);
                         </div>
                         <div class="form-group row">
                           <div class="offset-sm-2 col-sm-10">
-                            <input type="submit" class="btn btn-danger" value="Concluir" name="sub-edit">
+                            <input href="login.php" type="submit" class="btn btn-danger"  name="sub-add">
+                           
+
                             <!-- <button type="submit" class="btn btn-danger">Submit</button> -->
                           </div>
+                         
                         </div>
                       </form>
-                    </div>
+                      <a href="login.php"> Voltar ao Login</a>
+                   
+                  
+
+
+                    <!-- edit abaixo -->
 
                   </div>
                 </div><!-- /.card-body -->
@@ -327,12 +204,7 @@ $f = mysqli_fetch_assoc($qu);
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-      <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.2.0
-      </div>
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
+    
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
