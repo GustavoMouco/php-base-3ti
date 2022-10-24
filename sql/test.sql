@@ -80,3 +80,31 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+Create table produtos(
+	pizza varchar (50),
+    nhoque varchar (50),
+    lasanha varchar (50),
+    macarrao varchar (50)
+    
+);
+
+
+Create table produtos(
+	produto1 varchar (50),
+    fProduto1 varchar (50),
+    precop1 varchar (50),
+    vendasp1 varchar (50),
+    produto2 varchar (50),
+    fProduto2 varchar (50),
+    precop2 varchar (50),
+    vendasp2 varchar (50),
+    produto3 varchar (50),
+    fProduto3 varchar (50),
+    precop3 varchar (50),
+    vendasp3 varchar (50),
+    produto4 varchar (50),
+    fProduto4 varchar (50),
+    precop4 varchar (50),
+    vendasp4 varchar (50)
+);

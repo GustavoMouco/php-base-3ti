@@ -11,10 +11,7 @@ if (isset($_POST['sub-add']) || isset($_POST['sub-edit'])) {
   } else {
     $img = $_POST['img1'];
   }
-if (isset($_POST['sub-edit'])){
-  $m = "update reg set name='$t',Email='$u',password='$p',FotoPerfil='$img' where id='$_SESSION[id]'";
-  mysqli_query($con, $m);
-}
+
 if (isset($_POST['sub-add'])) {
   $i = "insert into reg(name,Email,password,FotoPerfil)values('$t','$u','$p','$img')";
   mysqli_query($con, $i);
@@ -149,19 +146,19 @@ $f = mysqli_fetch_assoc($qu);
                         <div class="form-group row" >
                           <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                           <div class="col-sm-10">
-                            <input type="text" name="text" class="form-control" value="<?php echo $f['name'] ?>">
+                            <input type="text" name="text" class="form-control" >
                           </div>
                         </div>
                         <div class="form-group row">
                           <label for="inputName" class="col-sm-2 col-form-label">Email</label>
                           <div class="col-sm-10">
-                            <input type="text" name="user" class="form-control" value="<?php echo $f['Email'] ?>">
+                            <input type="text" name="user" class="form-control" >
                           </div>
                         </div>
                         <div class="form-group row">
                           <label for="inputEmail" class="col-sm-2 col-form-label">Password</label>
                           <div class="col-sm-10">
-                            <input type="password" name="pass" value="<?php echo $f['password'] ?>">
+                            <input type="password" name="pass">
                           </div>
                         </div>
                        
@@ -171,7 +168,7 @@ $f = mysqli_fetch_assoc($qu);
                             <br>
                             <input type="file" name="f1">
                             <br>
-                            <input type="hidden" name="img1" value="<?php echo $f['FotoPerfil'] ?>">
+                            <input type="hidden" name="img1" >
                           </div>
                         </div>
                         <div class="form-group row">
