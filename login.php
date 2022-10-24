@@ -107,7 +107,7 @@ if(isset($_POST['sub'])){
         </div>
         <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./registro.php" class="nav-link active">
+                <a href="registro.php" class="nav-link active">
                   <p>Registre-se aqui
                   </p>
                 </a>
