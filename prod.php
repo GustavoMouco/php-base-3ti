@@ -1,9 +1,6 @@
 <?php
 include 'connect.php';
 include 'checkLogin.php';
-
-$id = $_GET['idProd'];
-
 if (isset($_POST['sub-add']) || isset($_POST['sub-edit'])) {
   $t = $_POST['text'];
   $u = $_POST['user'];
@@ -15,16 +12,16 @@ if (isset($_POST['sub-add']) || isset($_POST['sub-edit'])) {
     $img = $_POST['img1'];
   }
 if (isset($_POST['sub-edit'])){
-  $m = "update produtos set produto='$t',preco='$u',vendas='$p',fProduto='$img' where id='$id'";
+  $m = "update reg set produto='$t',preco='$u',vendas='$p',fProduto='$img' where id='$_SESSION[id]'";
   mysqli_query($con, $m);
 }
 if (isset($_POST['sub-add'])) {
-  $i = "insert into produtos(produto,preco,vendas,fProduto)values('$t','$u','$p','$img')";
+  $i = "insert into reg(produto,preco,vendas,fProduto)values('$t','$u','$p','$img')";
   mysqli_query($con, $i);
 }
 
 }
-$s = "select*from produtos where id='$id'";
+$s = "select*from reg where id='$_SESSION[id]'";
 $qu = mysqli_query($con, $s);
 $prod = mysqli_fetch_assoc($qu);
 
@@ -217,10 +214,10 @@ $prod = mysqli_fetch_assoc($qu);
               <div class="card card-primary card-outline">
                 <div class="card-body box-profile">
                   <div class="text-center">
-                    <img src="<?php echo $f['name'] ?>" width="100px" height="100px">
+                    <img src="<?php echo $prod['fProduto'] ?>" class="img-circle img-size-32 mr-2">
                   </div>
 
-                  <h3 class="profile-username text-center"><?php echo $prod['fProduto'] ?></h3>
+                  <h3 class="profile-username text-center"><?php echo $prod['produto'] ?></h3>
 
                   <p class="text-muted text-center">Admin</p>
                 </div>
@@ -234,96 +231,71 @@ $prod = mysqli_fetch_assoc($qu);
               <div class="card">
                 <div class="card-header p-2">
                   <ul class="nav nav-pills">
-                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Cadastro de produto</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#edit" data-toggle="tab">Edit Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Usuarios cadastrados</a></li>
                   </ul>
                 </div><!-- /.card-header -->
                 <div class="card-body">
                   <div class="tab-content">
 
-                  <form class="form-horizontal" method="POST" enctype="multipart/form-data">
-                        <div class="form-group row" >
-                          <label for="inputName" class="col-sm-2 col-form-label">Produto</label>
-                          <div class="col-sm-10">
-                            <input type="text" name="text" class="form-control" >
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="inputName" class="col-sm-2 col-form-label">Preço</label>
-                          <div class="col-sm-10">
-                            <input type="text" name="user" class="form-control" >
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="inputEmail" class="col-sm-2 col-form-label">Vendas</label>
-                          <div class="col-sm-10">
-                            <input type="text" name="pass">
-                          </div>
-                        </div>
-                       
-                        <div class="form-group row">
-                          <label for="inputSkills" class="col-sm-2 col-form-label">Foto do Produto</label>
-                          <div class="col-sm-10">
-                            <br>
-                            <input type="file" name="f1">
-                            <br>
-                            <input type="hidden" name="img1" >
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="offset-sm-2 col-sm-10">
-                            <input href="login.php" type="submit" class="btn btn-danger"  name="sub-add">
-                           
+                    <div class="active tab-pane" id="activity">
+                    
+                    <?php
+                  $sq="select * from produtos";
+                  $qu=mysqli_query($con,$sq);
+                  while($prod=  mysqli_fetch_assoc($qu)){
+                    ?>
+                    <table>
+                  <tr>
+                      <td>
+                          User
+                      </td>
+                      <td>
+                          <a>
+                          <?php echo $prod['produto'];?>
+                          </a>
+                      </td>
+                      <td>
+                          <ul class="list-inline">
+                              <li class="list-inline-item">
+                                  <img alt="Avatar" class="img-circle img-size-32 mr-2" src="<?php echo $prod['fProduto'];?>">
+                              </li>
+                          </ul>
+                      </td>
+                      <td class="project_progress">
+                          
+                              <?php echo $prod['preco'];?>
+                          
+                        
+                      </td>
+                      <td class="project-state">
+                          <span class="badge badge-success"><?php echo $prod['vendas'];?></span>
+                      </td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-info btn-sm" href="RegProd.php?idProd=<?php echo $prod['id'];?>">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Editar
+                          </a>
+                          <a class="btn btn-danger btn-sm" href="delete.php?id=<?php echo $prod['id'];?>">
+                              <i class="fas fa-trash">
+                              </i>
+                              Deletar
+                          </a>
+                      </td>
+                  </tr>
+                  </table>
+                  <?php
+                  }
+                  ?>
 
-                            <!-- <button type="submit" class="btn btn-danger">Submit</button> -->
-                          </div>
-                         
-                        </div>
-                      </form>
+                    </div>
 
 
                  
 
                     <!-- edit abaixo -->
 
-                    <div class="tab-pane" id="edit">
-                      <form class="form-horizontal" method="POST" enctype="multipart/form-data">
-                        <div class="form-group row">
-                          <label for="inputName" class="col-sm-2 col-form-label">Produto</label>
-                          <div class="col-sm-10">
-                            <input type="text" name="text" class="form-control" value="<?php echo $prod['produto'] ?>">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="inputName" class="col-sm-2 col-form-label">Preço do Produto</label>
-                          <div class="col-sm-10">
-                            <input type="text" name="user" class="form-control" value="<?php echo $prod['preco'] ?>">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="inputName" class="col-sm-2 col-form-label">quantidade vendida</label>
-                          <div class="col-sm-10">
-                            <input type="text" name="pass" value="<?php echo $prod['vendas'] ?>">
-                          </div>
-                        </div>
-                       
-                        <div class="form-group row">
-                          <label for="inputSkills" class="col-sm-2 col-form-label">Foto do produto</label>
-                          <div class="col-sm-10">
-                            <br>
-                            <input type="file" name="f1">
-                            <br>
-                            <input type="hidden" name="img1" value="<?php echo $prod['fProduto'] ?>">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="offset-sm-2 col-sm-10">
-                            <input type="submit" class="btn btn-danger" value="Concluir" name="sub-edit">
-                            <!-- <button type="submit" class="btn btn-danger">Submit</button> -->
-                          </div>
-                        </div>
-                      </form>
-                    </div>
+                 
 
                   </div>
                 </div><!-- /.card-body -->

@@ -214,7 +214,7 @@ $f = mysqli_fetch_assoc($qu);
               <div class="card card-primary card-outline">
                 <div class="card-body box-profile">
                   <div class="text-center">
-                    <img src="<?php echo $f['FotoPerfil'] ?>" width="100px" height="100px">
+                    <img src="<?php echo $f['FotoPerfil'] ?>" class="img-circle img-size-32 mr-2">
                   </div>
 
                   <h3 class="profile-username text-center"><?php echo $f['name'] ?></h3>
@@ -231,42 +231,62 @@ $f = mysqli_fetch_assoc($qu);
               <div class="card">
                 <div class="card-header p-2">
                   <ul class="nav nav-pills">
-                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">User</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#edit" data-toggle="tab">Edit User</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Usuarios cadastrados</a></li>
                   </ul>
                 </div><!-- /.card-header -->
                 <div class="card-body">
                   <div class="tab-content">
 
                     <div class="active tab-pane" id="activity">
-                      <table border='1'>
-                        <tr>
-                          <th>
-                            Name
-                          </th>
-                          <th>
-                            Email
-                          </th>
-                        
-                          <th>
-                            Senha
-                          </th>
-                        </tr>
-
-
-                        <tr>
-                          <td>
-                            <?php echo $f['name'] ?>
-                          </td>
-                          <td>
-                            <?php echo $f['Email'] ?>
-                          </td>
+                    
+                    <?php
+                  $sq="select * from reg";
+                  $qu=mysqli_query($con,$sq);
+                  while($f=  mysqli_fetch_assoc($qu)){
+                    ?>
+                    <table>
+                  <tr>
+                      <td>
+                          User
+                      </td>
+                      <td>
+                          <a>
+                          <?php echo $f['name'];?>
+                          </a>
+                      </td>
+                      <td>
+                          <ul class="list-inline">
+                              <li class="list-inline-item">
+                                  <img alt="Avatar" class="img-circle img-size-32 mr-2" src="<?php echo $f['FotoPerfil'];?>">
+                              </li>
+                          </ul>
+                      </td>
+                      <td class="project_progress">
                           
-                          <td>
-                            <?php echo $f['password'] ?>
-                          </td>
-                        </tr>
-                      </table>
+                              <?php echo $f['Email'];?>
+                          
+                        
+                      </td>
+                      <td class="project-state">
+                          <span class="badge badge-success"><?php echo $f['password'];?></span>
+                      </td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-info btn-sm" href="idReg.php?idReg=<?php echo $f['id'];?>">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Editar
+                          </a>
+                          <a class="btn btn-danger btn-sm" href="delete.php?id=<?php echo $f['id'];?>">
+                              <i class="fas fa-trash">
+                              </i>
+                              Deletar
+                          </a>
+                      </td>
+                  </tr>
+                  </table>
+                  <?php
+                  }
+                  ?>
 
                     </div>
 
@@ -275,44 +295,7 @@ $f = mysqli_fetch_assoc($qu);
 
                     <!-- edit abaixo -->
 
-                    <div class="tab-pane" id="edit">
-                      <form class="form-horizontal" method="POST" enctype="multipart/form-data">
-                        <div class="form-group row">
-                          <label for="inputName" class="col-sm-2 col-form-label">Name</label>
-                          <div class="col-sm-10">
-                            <input type="text" name="text" class="form-control" value="<?php echo $f['name'] ?>">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="inputName" class="col-sm-2 col-form-label">Email</label>
-                          <div class="col-sm-10">
-                            <input type="text" name="user" class="form-control" value="<?php echo $f['Email'] ?>">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="inputEmail" class="col-sm-2 col-form-label">Password</label>
-                          <div class="col-sm-10">
-                            <input type="password" name="pass" value="<?php echo $f['password'] ?>">
-                          </div>
-                        </div>
-                       
-                        <div class="form-group row">
-                          <label for="inputSkills" class="col-sm-2 col-form-label">Foto de Perfil</label>
-                          <div class="col-sm-10">
-                            <br>
-                            <input type="file" name="f1">
-                            <br>
-                            <input type="hidden" name="img1" value="<?php echo $f['FotoPerfil'] ?>">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="offset-sm-2 col-sm-10">
-                            <input type="submit" class="btn btn-danger" value="Concluir" name="sub-edit">
-                            <!-- <button type="submit" class="btn btn-danger">Submit</button> -->
-                          </div>
-                        </div>
-                      </form>
-                    </div>
+                 
 
                   </div>
                 </div><!-- /.card-body -->
