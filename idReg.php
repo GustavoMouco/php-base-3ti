@@ -3,7 +3,9 @@
 include 'connect.php';
 include 'checkLogin.php';
 
-$s = "select*from produtos where id='$id'";
+$id = $_GET['idReg'];
+
+$s = "select*from reg where id='$id'";
 $qu = mysqli_query($con, $s);
 $user = mysqli_fetch_assoc($qu);
 
@@ -19,11 +21,11 @@ if (isset($_POST['sub-add']) || isset($_POST['sub-edit'])) {
     $img = $_POST['img1'];
   }
 if (isset($_POST['sub-edit'])){
-  $m = "update produtos set name='$t',Email='$u',password='$p',FotoPerfil='$img' where id='$id'";
+  $m = "update reg set name='$t',Email='$u',password='$p',FotoPerfil='$img' where id='$id'";
   mysqli_query($con, $m);
 }
 if (isset($_POST['sub-add'])) {
-  $i = "insert into produtos(name,Email,password,FotoPerfil)values('$t','$u','$p','$img')";
+  $i = "insert into reg(name,Email,password,FotoPerfil)values('$t','$u','$p','$img')";
   mysqli_query($con, $i);
 }
 

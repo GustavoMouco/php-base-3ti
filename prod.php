@@ -196,7 +196,7 @@ $prod = mysqli_fetch_assoc($qu);
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="home.php">Home</a></li>
                 <li class="breadcrumb-item active">User Profile</li>
               </ol>
             </div>
@@ -211,18 +211,7 @@ $prod = mysqli_fetch_assoc($qu);
             <div class="col-md-3">
 
               <!-- Profile Image -->
-              <div class="card card-primary card-outline">
-                <div class="card-body box-profile">
-                  <div class="text-center">
-                    <img src="<?php echo $prod['fProduto'] ?>" class="img-circle img-size-32 mr-2">
-                  </div>
-
-                  <h3 class="profile-username text-center"><?php echo $prod['produto'] ?></h3>
-
-                  <p class="text-muted text-center">Admin</p>
-                </div>
-                <!-- /.card-body -->
-              </div>
+        
               <!-- /.card -->
 
             </div>
@@ -234,20 +223,21 @@ $prod = mysqli_fetch_assoc($qu);
                     <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Usuarios cadastrados</a></li>
                   </ul>
                 </div><!-- /.card-header -->
-                <div class="card-body">
+                <div class="card-body p-0">
+                <table class="table table-striped projects">
                   <div class="tab-content">
-
-                    <div class="active tab-pane" id="activity">
+                 
+                  <div class="active tab-pane" id="activity">
                     
                     <?php
                   $sq="select * from produtos";
                   $qu=mysqli_query($con,$sq);
                   while($prod=  mysqli_fetch_assoc($qu)){
                     ?>
-                    <table>
+                    
                   <tr>
                       <td>
-                          User
+                          Produto    
                       </td>
                       <td>
                           <a>
@@ -283,11 +273,11 @@ $prod = mysqli_fetch_assoc($qu);
                           </a>
                       </td>
                   </tr>
-                  </table>
+                  
                   <?php
                   }
                   ?>
-
+                  </table>
                     </div>
 
 

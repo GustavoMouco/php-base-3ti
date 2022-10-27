@@ -234,7 +234,8 @@ $f = mysqli_fetch_assoc($qu);
                     <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Usuarios cadastrados</a></li>
                   </ul>
                 </div><!-- /.card-header -->
-                <div class="card-body">
+                <div class="card-body p-0">
+                  <table class="table table-striped projects">
                   <div class="tab-content">
 
                     <div class="active tab-pane" id="activity">
@@ -244,7 +245,7 @@ $f = mysqli_fetch_assoc($qu);
                   $qu=mysqli_query($con,$sq);
                   while($f=  mysqli_fetch_assoc($qu)){
                     ?>
-                    <table>
+                    
                   <tr>
                       <td>
                           User
@@ -283,11 +284,10 @@ $f = mysqli_fetch_assoc($qu);
                           </a>
                       </td>
                   </tr>
-                  </table>
                   <?php
                   }
                   ?>
-
+                  </table>
                     </div>
 
 

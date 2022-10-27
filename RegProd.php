@@ -222,7 +222,7 @@ $prod = mysqli_fetch_assoc($qu);
 
                   <h3 class="profile-username text-center"><?php echo $prod['fProduto'] ?></h3>
 
-                  <p class="text-muted text-center">Admin</p>
+                  <p class="text-muted text-center">Produto</p>
                 </div>
                 <!-- /.card-body -->
               </div>
@@ -234,59 +234,19 @@ $prod = mysqli_fetch_assoc($qu);
               <div class="card">
                 <div class="card-header p-2">
                   <ul class="nav nav-pills">
-                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Cadastro de produto</a></li>
                     <li class="nav-item"><a class="nav-link" href="#edit" data-toggle="tab">Edit Produtos</a></li>
                   </ul>
                 </div><!-- /.card-header -->
                 <div class="card-body">
                   <div class="tab-content">
 
-                  <form class="form-horizontal" method="POST" enctype="multipart/form-data">
-                        <div class="form-group row" >
-                          <label for="inputName" class="col-sm-2 col-form-label">Produto</label>
-                          <div class="col-sm-10">
-                            <input type="text" name="text" class="form-control" >
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="inputName" class="col-sm-2 col-form-label">Preço</label>
-                          <div class="col-sm-10">
-                            <input type="text" name="user" class="form-control" >
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="inputEmail" class="col-sm-2 col-form-label">Vendas</label>
-                          <div class="col-sm-10">
-                            <input type="text" name="pass">
-                          </div>
-                        </div>
-                       
-                        <div class="form-group row">
-                          <label for="inputSkills" class="col-sm-2 col-form-label">Foto do Produto</label>
-                          <div class="col-sm-10">
-                            <br>
-                            <input type="file" name="f1">
-                            <br>
-                            <input type="hidden" name="img1" >
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="offset-sm-2 col-sm-10">
-                            <input href="login.php" type="submit" class="btn btn-danger"  name="sub-add">
-                           
-
-                            <!-- <button type="submit" class="btn btn-danger">Submit</button> -->
-                          </div>
-                         
-                        </div>
-                      </form>
-
+                
 
                  
 
                     <!-- edit abaixo -->
 
-                    <div class="tab-pane" id="edit">
+         
                       <form class="form-horizontal" method="POST" enctype="multipart/form-data">
                         <div class="form-group row">
                           <label for="inputName" class="col-sm-2 col-form-label">Produto</label>
@@ -323,7 +283,7 @@ $prod = mysqli_fetch_assoc($qu);
                           </div>
                         </div>
                       </form>
-                    </div>
+                  
 
                   </div>
                 </div><!-- /.card-body -->
@@ -338,12 +298,7 @@ $prod = mysqli_fetch_assoc($qu);
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-      <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.2.0
-      </div>
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
+
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
