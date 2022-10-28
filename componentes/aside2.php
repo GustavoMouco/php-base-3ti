@@ -16,7 +16,7 @@ include 'reg.php'
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
     <img src="AdminLTE-3.2.0\dist\img\logo.png" class="img-circle img-size-32 mr-2" alt="User Image" sizeof>
-      <span class="brand-text font-weight-light">Sapori D'Italia</span>
+      <span class="brand-text font-weight-light">Sapori Technology</span>
     </a>
 
     <!-- Sidebar -->

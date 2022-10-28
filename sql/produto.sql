@@ -10,3 +10,5 @@ create table produto(
     fk_idCategoria int not null,
     FOREIGN KEY (fk_idCategoria) REFERENCES categoria(idCategoria)
 );
+
+create table pedidos( Produto varchar(100), Quantidade int(11), id int(11) PRIMARY KEY AUTO_INCREMENT );

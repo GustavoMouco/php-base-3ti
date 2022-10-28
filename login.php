@@ -77,7 +77,7 @@ if(isset($_POST['sub'])){
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><b>Sapori</b>D'Italia</a>
+      <a href="../../index2.html" class="h1"><b>Sapori</b>Technology</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Faça seu login</p>

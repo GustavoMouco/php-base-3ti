@@ -16,7 +16,7 @@ include 'reg.php'
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
      
-      <span class="brand-text font-weight-light">Sapori D'Italia</span>
+      <span class="brand-text font-weight-light">Sapori Technology</span>
     </a>
 
     <!-- Sidebar -->
@@ -45,7 +45,7 @@ include 'reg.php'
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
@@ -60,6 +60,12 @@ include 'reg.php'
               <li class="nav-item">
                 <a href="./profile.php" class="nav-link active">
                   <p>Editar Usuario</p>
+                </a>
+                </a>
+                <li class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="cardapio.php" class="nav-link active">
+                  <p>Cardapio</p>
                 </a>
                 </a>
             

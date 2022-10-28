@@ -1,6 +1,9 @@
 <?php
 include 'connect.php';
 include 'checkLogin.php';
+
+
+
 if (isset($_POST['sub-add']) || isset($_POST['sub-edit'])) {
   $t = $_POST['text'];
   $u = $_POST['user'];
@@ -11,10 +14,7 @@ if (isset($_POST['sub-add']) || isset($_POST['sub-edit'])) {
   } else {
     $img = $_POST['img1'];
   }
-if (isset($_POST['sub-edit'])){
-  $m = "update produtos set produto='$t',preco='$u',vendas='$p',fProduto='$img' where id='$_SESSION[id]'";
-  mysqli_query($con, $m);
-}
+
 if (isset($_POST['sub-add'])) {
   $i = "insert into produtos(produto,preco,vendas,fProduto)values('$t','$u','$p','$img')";
   mysqli_query($con, $i);
@@ -54,9 +54,9 @@ $prod = mysqli_fetch_assoc($qu);
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Home</a>
+          <a href="home.php" class="nav-link">home</a>
         </li>
-     
+       
       </ul>
 
       <!-- Right navbar links -->
@@ -83,9 +83,25 @@ $prod = mysqli_fetch_assoc($qu);
           </div>
         </li>
 
+        <!-- Messages Dropdown Menu -->
+        <!-- Notifications Dropdown Menu -->
+        
+        <li class="nav-item">
+          <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+            <i class="fas fa-expand-arrows-alt"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+            <i class="fas fa-th-large"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <?php include 'componentes/aside.php' ?>
+    <?php include 'componentes/aside2.php' ?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -94,14 +110,9 @@ $prod = mysqli_fetch_assoc($qu);
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Produtos cadastrados</h1>
+              <h1>Cadastro</h1>
             </div>
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="home.php">Home</a></li>
-                <li class="breadcrumb-item"><a href="registroProduto.php">Registrar Produto</a></li>
-              </ol>
-            </div>
+         
           </div>
         </div><!-- /.container-fluid -->
       </section>
@@ -113,7 +124,7 @@ $prod = mysqli_fetch_assoc($qu);
             <div class="col-md-3">
 
               <!-- Profile Image -->
-        
+           
               <!-- /.card -->
 
             </div>
@@ -122,72 +133,63 @@ $prod = mysqli_fetch_assoc($qu);
               <div class="card">
                 <div class="card-header p-2">
                   <ul class="nav nav-pills">
-                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Usuarios cadastrados</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="#Adduser" data-toggle="tab">Add user</a></li>
+                   
                   </ul>
                 </div><!-- /.card-header -->
-                <div class="card-body p-0">
-                <table class="table table-striped projects">
+                <div class="card-body">
                   <div class="tab-content">
-                 
-                  <div class="active tab-pane" id="activity">
+
                     
-                    <?php
-                  $sq="select * from produtos";
-                  $qu=mysqli_query($con,$sq);
-                  while($prod=  mysqli_fetch_assoc($qu)){
-                    ?>
-                    
-                  <tr>
-                      <td>
-                          Produto    
-                      </td>
-                      <td>
-                          <a>
-                          <?php echo $prod['produto'];?>
-                          </a>
-                      </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="img-circle img-size-32 mr-2" src="<?php echo $prod['fProduto'];?>">
-                              </li>
-                          </ul>
-                      </td>
-                      <td class="project_progress">
-                          
-                              <?php echo $prod['preco'];?>
-                          
-                        
-                      </td>
-                      <td class="project-state">
-                          <span class="badge badge-success"><?php echo $prod['vendas'];?></span>
-                      </td>
-                      <td class="project-actions text-right">
-                          <a class="btn btn-info btn-sm" href="RegProd.php?idProd=<?php echo $prod['id'];?>">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Editar
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="delete.php?id=<?php echo $prod['id'];?>">
-                              <i class="fas fa-trash">
-                              </i>
-                              Deletar
-                          </a>
-                      </td>
-                  </tr>
+
+
+                   
+                      <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+                        <div class="form-group row" >
+                          <label for="inputName" class="col-sm-2 col-form-label">Produto</label>
+                          <div class="col-sm-10">
+                            <input type="text" name="text" class="form-control" >
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputName" class="col-sm-2 col-form-label">preco</label>
+                          <div class="col-sm-10">
+                            <input type="text" name="user" class="form-control" >
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputEmail" class="col-sm-2 col-form-label">Quantidade vendida</label>
+                          <div class="col-sm-10">
+                            <input type="text" name="pass">
+                          </div>
+                        </div>
+                       
+                        <div class="form-group row">
+                          <label for="inputSkills" class="col-sm-2 col-form-label">Foto do Produto</label>
+                          <div class="col-sm-10">
+                            <br>
+                            <input type="file" name="f1">
+                            <br>
+                            <input type="hidden" name="img1" >
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="offset-sm-2 col-sm-10">
+                            <input href="login.php" type="submit" class="btn btn-danger"  name="sub-add">
+                           
+
+                            <!-- <button type="submit" class="btn btn-danger">Submit</button> -->
+                          </div>
+                         
+                        </div>
+                      </form>
+                      <a href="home.php"> Voltar ao home</a>
+                   
                   
-                  <?php
-                  }
-                  ?>
-                  </table>
-                    </div>
 
-
-                 
 
                     <!-- edit abaixo -->
-
-                 
 
                   </div>
                 </div><!-- /.card-body -->
@@ -202,7 +204,7 @@ $prod = mysqli_fetch_assoc($qu);
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-
+    
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
