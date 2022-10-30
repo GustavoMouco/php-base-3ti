@@ -16,7 +16,7 @@ if (isset($_POST['sub-add']) || isset($_POST['sub-edit'])) {
   }
 
 if (isset($_POST['sub-add'])) {
-  $i = "insert into produtos(produto,preco,vendas,fProduto)values('$t','$u','$p','$img')";
+  $i = "insert into produtos(produto,preco,quantidade,fProduto)values('$t','$u','$p','$img')";
   mysqli_query($con, $i);
 }
 

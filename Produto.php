@@ -1,9 +1,6 @@
 <?php
 include 'connect.php';
 include 'checkLogin.php';
-
-$id = $_GET['idProd'];
-
 if (isset($_POST['sub-add']) || isset($_POST['sub-edit'])) {
   $t = $_POST['text'];
   $u = $_POST['user'];
@@ -15,7 +12,7 @@ if (isset($_POST['sub-add']) || isset($_POST['sub-edit'])) {
     $img = $_POST['img1'];
   }
 if (isset($_POST['sub-edit'])){
-  $m = "update produtos set produto='$t',preco='$u',quantidade='$p',fProduto='$img' where id='$id'";
+  $m = "update produtos set produto='$t',preco='$u',quantidade='$p',fProduto='$img' where id='$_SESSION[id]'";
   mysqli_query($con, $m);
 }
 if (isset($_POST['sub-add'])) {
@@ -24,7 +21,7 @@ if (isset($_POST['sub-add'])) {
 }
 
 }
-$s = "select*from produtos where id='$id'";
+$s = "select*from produtos where id='$_SESSION[id]'";
 $qu = mysqli_query($con, $s);
 $prod = mysqli_fetch_assoc($qu);
 
@@ -87,63 +84,7 @@ $prod = mysqli_fetch_assoc($qu);
         </li>
 
         <!-- Messages Dropdown Menu -->
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="far fa-comments"></i>
-            <span class="badge badge-danger navbar-badge">3</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="./AdminLTE-3.2.0/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    Brad Diesel
-                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">Call me whenever you can...</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="./AdminLTE-3.2.0/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    John Pierce
-                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">I got your message bro</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="./AdminLTE-3.2.0/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    Nora Silvester
-                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">The subject goes here</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-          </div>
-        </li>
+    
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
@@ -195,12 +136,12 @@ $prod = mysqli_fetch_assoc($qu);
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Produtos</h1>
+              <h1>Profile</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="home.php">Home</a></li>
-          
+                <li class="breadcrumb-item active"><a href="registroProduto.php">registrar um produto</a></li>
               </ol>
             </div>
           </div>
@@ -217,12 +158,12 @@ $prod = mysqli_fetch_assoc($qu);
               <div class="card card-primary card-outline">
                 <div class="card-body box-profile">
                   <div class="text-center">
-                    <img src="<?php echo $f['name'] ?>" width="100px" height="100px">
+                    <img src="<?php echo $f['FotoPerfil'] ?>" class="img-circle img-size-32 mr-2">
                   </div>
 
-                  <h3 class="profile-username text-center"><?php echo $prod['fProduto'] ?></h3>
+                  <h3 class="profile-username text-center"><?php echo $f['name'] ?></h3>
 
-                  <p class="text-muted text-center">Produto</p>
+                  <p class="text-muted text-center">Admin</p>
                 </div>
                 <!-- /.card-body -->
               </div>
@@ -234,56 +175,72 @@ $prod = mysqli_fetch_assoc($qu);
               <div class="card">
                 <div class="card-header p-2">
                   <ul class="nav nav-pills">
-                    <li class="nav-item"><a class="nav-link" href="#edit" data-toggle="tab">Edit Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Produtos cadastrados</a></li>
                   </ul>
                 </div><!-- /.card-header -->
-                <div class="card-body">
+                <div class="card-body p-0">
+                  <table class="table table-striped projects">
                   <div class="tab-content">
 
-                
+                    <div class="active tab-pane" id="activity">
+                    
+                    <?php
+                  $sq="select * from produtos";
+                  $qu=mysqli_query($con,$sq);
+                  while($prod=  mysqli_fetch_assoc($qu)){
+                    ?>
+                    
+                  <tr>
+                      <td>
+                          Produto    
+                      </td>
+                      <td>
+                          <a>
+                          <?php echo $prod['produto'];?>
+                          </a>
+                      </td>
+                      <td>
+                          <ul class="list-inline">
+                              <li class="list-inline-item">
+                                  <img alt="Avatar" class="img-circle img-size-32 mr-2" src="<?php echo $prod['fProduto'];?>">
+                              </li>
+                          </ul>
+                      </td>
+                      <td class="project_progress">
+                          
+                              <?php echo $prod['preco'];?>
+                          
+                        
+                      </td>
+                      <td class="project-state">
+                          <span class="badge badge-success"><?php echo $prod['quantidade'];?></span>
+                      </td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-info btn-sm" href="RegProd.php?idProd=<?php echo $prod['id'];?>">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Editar
+                          </a>
+                          <a class="btn btn-danger btn-sm" href="delete.php?id=<?php echo $prod['id'];?>">
+                              <i class="fas fa-trash">
+                              </i>
+                              Deletar
+                          </a>
+                      </td>
+                  </tr>
+                  
+                  <?php
+                  }
+                  ?>
+                  </table>
+                    </div>
+
 
                  
 
                     <!-- edit abaixo -->
 
-         
-                      <form class="form-horizontal" method="POST" enctype="multipart/form-data">
-                        <div class="form-group row">
-                          <label for="inputName" class="col-sm-2 col-form-label">Produto</label>
-                          <div class="col-sm-10">
-                            <input type="text" name="text" class="form-control" value="<?php echo $prod['produto'] ?>">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="inputName" class="col-sm-2 col-form-label">Preço do Produto</label>
-                          <div class="col-sm-10">
-                            <input type="text" name="user" class="form-control" value="<?php echo $prod['preco'] ?>">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="inputName" class="col-sm-2 col-form-label">quantidade vendida</label>
-                          <div class="col-sm-10">
-                            <input type="text" name="pass" value="<?php echo $prod['quantidade'] ?>">
-                          </div>
-                        </div>
-                       
-                        <div class="form-group row">
-                          <label for="inputSkills" class="col-sm-2 col-form-label">Foto do produto</label>
-                          <div class="col-sm-10">
-                            <br>
-                            <input type="file" name="f1">
-                            <br>
-                            <input type="hidden" name="img1" value="<?php echo $prod['fProduto'] ?>">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="offset-sm-2 col-sm-10">
-                            <input type="submit" class="btn btn-danger" value="Concluir" name="sub-edit">
-                            <!-- <button type="submit" class="btn btn-danger">Submit</button> -->
-                          </div>
-                        </div>
-                      </form>
-                  
+                 
 
                   </div>
                 </div><!-- /.card-body -->
@@ -298,7 +255,12 @@ $prod = mysqli_fetch_assoc($qu);
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-
+    <footer class="main-footer">
+      <div class="float-right d-none d-sm-block">
+        <b>Version</b> 3.2.0
+      </div>
+      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    </footer>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">

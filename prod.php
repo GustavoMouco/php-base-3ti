@@ -12,11 +12,11 @@ if (isset($_POST['sub-add']) || isset($_POST['sub-edit'])) {
     $img = $_POST['img1'];
   }
 if (isset($_POST['sub-edit'])){
-  $m = "update produtos set produto='$t',preco='$u',vendas='$p',fProduto='$img' where id='$_SESSION[id]'";
+  $m = "update produtos set produto='$t',preco='$u',quantidade='$p',fProduto='$img' where id='$_SESSION[id]'";
   mysqli_query($con, $m);
 }
 if (isset($_POST['sub-add'])) {
-  $i = "insert into produtos(produto,preco,vendas,fProduto)values('$t','$u','$p','$img')";
+  $i = "insert into produtos(produto,preco,quantidade,fProduto)values('$t','$u','$p','$img')";
   mysqli_query($con, $i);
 }
 
@@ -60,28 +60,9 @@ $prod = mysqli_fetch_assoc($qu);
       </ul>
 
       <!-- Right navbar links -->
-      <ul class="navbar-nav ml-auto">
+      <?php include 'componentes/nav.php';?>
         <!-- Navbar Search -->
-        <li class="nav-item">
-          <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-            <i class="fas fa-search"></i>
-          </a>
-          <div class="navbar-search-block">
-            <form class="form-inline">
-              <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                  <button class="btn btn-navbar" type="submit">
-                    <i class="fas fa-search"></i>
-                  </button>
-                  <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </li>
+    
 
 
     <!-- Main Sidebar Container -->
@@ -160,7 +141,7 @@ $prod = mysqli_fetch_assoc($qu);
                         
                       </td>
                       <td class="project-state">
-                          <span class="badge badge-success"><?php echo $prod['vendas'];?></span>
+                          <span class="badge badge-success"><?php echo $prod['quantidade'];?></span>
                       </td>
                       <td class="project-actions text-right">
                           <a class="btn btn-info btn-sm" href="RegProd.php?idProd=<?php echo $prod['id'];?>">

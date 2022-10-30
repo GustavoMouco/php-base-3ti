@@ -36,7 +36,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="home.php">Home</a></li>
-              <li class="breadcrumb-item"><a href="prod.php">Produtos</a></li>
+              <li class="breadcrumb-item"><a href="Produto.php">Produtos</a></li>
               <li class="breadcrumb-item active">Dashboard v1</li>
             </ol>
           </div><!-- /.col -->

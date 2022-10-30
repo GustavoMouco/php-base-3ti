@@ -3,25 +3,19 @@ include 'connect.php';
 include 'checkLogin.php';
 if (isset($_POST['sub-add']) || isset($_POST['sub-edit'])) {
   $t = $_POST['text'];
-  $u = $_POST['user'];
   $p = $_POST['pass'];
-  if ($_FILES['f1']['name']) {
-    move_uploaded_file($_FILES['f1']['tmp_name'], "image/" . $_FILES['f1']['name']);
-    $img = "image/" . $_FILES['f1']['name'];
-  } else {
-    $img = $_POST['img1'];
   }
 if (isset($_POST['sub-edit'])){
-  $m = "update pedidos set produto='$t',preco='$u',vendas='$p',fProduto='$img' where id='$_SESSION[id]'";
+  $m = "update produtos  set produto='$t',preco='$u',quantidade='$p', where id='$_SESSION[id]'";
   mysqli_query($con, $m);
 }
 if (isset($_POST['sub-add'])) {
-  $i = "insert into pedidos(produto,quantidade,vendas,fProduto)values('$t','$u','$p','$img')";
+  $i = "insert into produtos (produto,quantidade)values('$t','$p')";
   mysqli_query($con, $i);
 }
 
-}
-$s = "select*from pedidos where id='$_SESSION[id]'";
+
+$s = "select*from produtos where id='$_SESSION[id]'";
 $qu = mysqli_query($con, $s);
 $prod = mysqli_fetch_assoc($qu);
 
@@ -100,7 +94,7 @@ $prod = mysqli_fetch_assoc($qu);
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <?php include 'componentes/aside2.php';?>
+  <?php include 'componentes/aside.php';?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -137,26 +131,27 @@ $prod = mysqli_fetch_assoc($qu);
             </div>
             <div class="col-12 col-sm-6">
               
-
+            <form method="POST" enctype="multipart/form-data">
               <div class="bg-gray py-2 px-3 mt-4">
-                <input class="mb-0"></input>
+                <label>Nome do prato: </label>
+                <input class="mb-0" type="text" name="text">
                 <h4 class="mt-0">
-                  <small>ex: Ravioli Frito </small>
                 </h4>
-              </div>
+             
+                <label>quantidade </label>
+                <input class="mb-0" type="text" name="pass">
+                <h4 class="mt-0">
+                </h4>
+              
 
-              <div class="mt-4">
-                <div class="btn btn-primary btn-lg btn-flat">
-                  <i class="fas fa-cart-plus fa-lg mr-2"></i>
-                  Add to Cart
-                </div>
-
+                <input href="login.php" type="submit" class="btn btn-danger"  name="sub-add" value="Finalizar Pedido">
               
               </div>
 
              
-
+            </form>
             </div>
+
           </div>
         
         </div>
