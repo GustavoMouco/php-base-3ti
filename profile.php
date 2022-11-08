@@ -237,7 +237,28 @@ $f = mysqli_fetch_assoc($qu);
                 <div class="card-body p-0">
                   <table class="table table-striped projects">
                   <div class="tab-content">
-
+                  <thead>
+                  <tr>
+                      <th style="width: 1%">
+                          Usuario
+                      </th>
+                      <th style="width: 20%">
+                          Nome
+                      </th>
+                      <th style="width: 30%">
+                          Foto de Perfil
+                      </th>
+                      <th>
+                          Email
+                      </th>
+                      <th style="width: 8%" class="text-center">
+                          Senha
+                      </th>
+                      <th style="width: 20%">
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
                     <div class="active tab-pane" id="activity">
                     
                     <?php
@@ -287,6 +308,7 @@ $f = mysqli_fetch_assoc($qu);
                   <?php
                   }
                   ?>
+              </tbody>
                   </table>
                     </div>
 

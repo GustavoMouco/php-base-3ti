@@ -181,6 +181,27 @@ $prod = mysqli_fetch_assoc($qu);
                 <div class="card-body p-0">
                   <table class="table table-striped projects">
                   <div class="tab-content">
+                  <thead>
+                  <tr>
+                      <th style="width: 1%">
+                          Categoria
+                      </th>
+                      <th style="width: 20%">
+                          Nome
+                      </th>
+                      <th style="width: 30%">
+                          Foto
+                      </th>
+                      <th>
+                          Preço
+                      </th>
+                      <th style="width: 8%" class="text-center">
+                          Quantidade
+                      </th>
+                      <th style="width: 20%">
+                      </th>
+                  </tr>
+              </thead>
 
                     <div class="active tab-pane" id="activity">
                     
@@ -255,12 +276,7 @@ $prod = mysqli_fetch_assoc($qu);
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-      <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.2.0
-      </div>
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
+
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">

@@ -138,7 +138,12 @@ $prod = mysqli_fetch_assoc($qu);
                 <h4 class="mt-0">
                 </h4>
              
-                <label>quantidade </label>
+                <label>quantidade: </label>
+                <input class="mb-0" type="text" name="pass">
+                <h4 class="mt-0">
+                </h4>
+
+                 <label> Preço: </label>
                 <input class="mb-0" type="text" name="pass">
                 <h4 class="mt-0">
                 </h4>
