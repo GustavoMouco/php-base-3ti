@@ -1,7 +1,7 @@
 <?php
     include 'connect.php';
     include 'checkLogin.php';
-    include 'componentes/reg.php';
+    
 ?>
 
 <!DOCTYPE html>
@@ -36,8 +36,8 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="home.php">Home</a></li>
-              <li class="breadcrumb-item"><a href="Produto.php">Produtos</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item"><a href="Produto.php">Admin</a></li>
+             
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -77,7 +77,7 @@
               // $row = mysqli_fetch_assoc($result, MYSQLI_NUM);
               // echo $row['total'];
 
-              $query = $con->query("SELECT count(`id`) as `total` FROM reg");
+              $query = $con->query("SELECT count(`id`) as `total` FROM produtos");
               $row = $query->fetch_assoc();
               echo $row['total'];
 
@@ -85,12 +85,12 @@
       
                 </h3>
 
-                <p>User Registrations</p>
+                <p>Pedidos Feitos</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="profile.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="Produto.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -122,7 +122,7 @@
                      
                     </div>
                     <div class="col-5 text-center">
-                      <img src="Pizza.jfif" alt="user-avatar" class="img-circle img-fluid">
+                      <img src="AdminLTE-3.2.0/dist/img/Pizza.jfif" class="img-circle img-fluid">
                     </div>
                   </div>
                 </div>
@@ -148,7 +148,7 @@
                      
                     </div>
                     <div class="col-5 text-center">
-                      <img src="spaghetti.jfif"  class="img-circle img-fluid">
+                      <img src="AdminLTE-3.2.0/dist/img/Spaghetti.jfif" class="img-fluid mb-3"  style="height: 00x">
                     </div>
                   </div>
                 </div>
@@ -174,7 +174,7 @@
                      
                     </div>
                     <div class="col-5 text-center">
-                      <img src="pasta.jfif"  class="img-circle img-fluid">
+                      <img src="AdminLTE-3.2.0/dist/img/pasta.jfif"  class="img-circle img-fluid">
                     </div>
                   </div>
                 </div>

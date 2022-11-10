@@ -1,6 +1,6 @@
 <?php
 include 'connect.php';
-$sq="delete from reg where id='$_SESSION[id]'";
+$sq="delete from produtos where id='$_SESSION[id]'";
 mysqli_query($con,$sq);
-header('location:add_district.php');
+header('location:Produto.php');
 ?>

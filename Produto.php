@@ -175,7 +175,7 @@ $prod = mysqli_fetch_assoc($qu);
               <div class="card">
                 <div class="card-header p-2">
                   <ul class="nav nav-pills">
-                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Produtos cadastrados</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Pedidos</a></li>
                   </ul>
                 </div><!-- /.card-header -->
                 <div class="card-body p-0">
@@ -183,14 +183,11 @@ $prod = mysqli_fetch_assoc($qu);
                   <div class="tab-content">
                   <thead>
                   <tr>
-                      <th style="width: 1%">
+                      <th style="width: 15%">
                           Categoria
                       </th>
                       <th style="width: 20%">
                           Nome
-                      </th>
-                      <th style="width: 30%">
-                          Foto
                       </th>
                       <th>
                           Preço
@@ -215,25 +212,18 @@ $prod = mysqli_fetch_assoc($qu);
                       <td>
                           Produto    
                       </td>
-                      <td>
+                      <td style="width: 1%">
                           <a>
                           <?php echo $prod['produto'];?>
                           </a>
                       </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="img-circle img-size-32 mr-2" src="<?php echo $prod['fProduto'];?>">
-                              </li>
-                          </ul>
-                      </td>
-                      <td class="project_progress">
+                      <td class="project_progress" style="width: 20%">
                           
                               <?php echo $prod['preco'];?>
                           
                         
                       </td>
-                      <td class="project-state">
+                      <td class="project-state" style="width: 5%">
                           <span class="badge badge-success"><?php echo $prod['quantidade'];?></span>
                       </td>
                       <td class="project-actions text-right">
@@ -242,11 +232,7 @@ $prod = mysqli_fetch_assoc($qu);
                               </i>
                               Editar
                           </a>
-                          <a class="btn btn-danger btn-sm" href="delete.php?id=<?php echo $prod['id'];?>">
-                              <i class="fas fa-trash">
-                              </i>
-                              Deletar
-                          </a>
+                  
                       </td>
                   </tr>
                   

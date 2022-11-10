@@ -4,13 +4,14 @@ include 'checkLogin.php';
 if (isset($_POST['sub-add']) || isset($_POST['sub-edit'])) {
   $t = $_POST['text'];
   $p = $_POST['pass'];
+  $v = $_POST['preco'];
   }
 if (isset($_POST['sub-edit'])){
   $m = "update produtos  set produto='$t',preco='$u',quantidade='$p', where id='$_SESSION[id]'";
   mysqli_query($con, $m);
 }
 if (isset($_POST['sub-add'])) {
-  $i = "insert into produtos (produto,quantidade)values('$t','$p')";
+  $i = "insert into produtos (produto,quantidade,preco)values('$t','$p','$v')";
   mysqli_query($con, $i);
 }
 
@@ -144,7 +145,7 @@ $prod = mysqli_fetch_assoc($qu);
                 </h4>
 
                  <label> Preço: </label>
-                <input class="mb-0" type="text" name="pass">
+                <input class="mb-0" type="text" name="preco">
                 <h4 class="mt-0">
                 </h4>
               
