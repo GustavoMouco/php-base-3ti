@@ -57,12 +57,7 @@ include 'reg.php'
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./profile.php" class="nav-link active">
-                  <p>Editar Usuario</p>
-                </a>
-                </a>
-                <li class="nav nav-treeview">
+            
               <li class="nav-item">
                 <a href="cardapio.php" class="nav-link active">
                   <p>Cardapio</p>

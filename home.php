@@ -36,7 +36,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="home.php">Home</a></li>
-              <li class="breadcrumb-item"><a href="Produto.php">Admin</a></li>
+              <li class="breadcrumb-item"><a href="../php-base-3ti/home.php">Admin</a></li>
              
             </ol>
           </div><!-- /.col -->
@@ -64,35 +64,7 @@
           <!-- ./col -->
          
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>
-                
-                <?php
-
-              // $queryone="SELECT COUNT(id) as total FROM reg";
-              // $result = mysqli_query($con,$queryone);
-              // $row = mysqli_fetch_assoc($result, MYSQLI_NUM);
-              // echo $row['total'];
-
-              $query = $con->query("SELECT count(`id`) as `total` FROM produtos");
-              $row = $query->fetch_assoc();
-              echo $row['total'];
-
-                    ?>
-      
-                </h3>
-
-                <p>Pedidos Feitos</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="Produto.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
+         
           <!-- ./col -->
           
           <!-- ./col -->
