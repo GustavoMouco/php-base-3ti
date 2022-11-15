@@ -17,7 +17,9 @@
           <li class="nav-item d-none d-sm-inline-block">
             <a href="home.php" class="nav-link">Home</a>
           </li>
-
+          <li>
+          <a href="login.php" class="nav-link">Sign out</a>
+          </li>
          
         </ul>
     

@@ -37,7 +37,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="home.php">Home</a></li>
               <li class="breadcrumb-item"><a href="../tccadmin/home.php">Admin</a></li>
-             
+              
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -59,6 +59,20 @@
                 <b><?php echo $f['name'];?></b>
               </div>
               
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>2</h3>
+
+                <p>Pedidos Feitos</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="Cardapio.php" class="small-box-footer">Realizar mais um <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -115,7 +129,7 @@
                 <div class="card-body pt-0">
                   <div class="row">
                     <div class="col-7">
-                      <h2 class="lead"><b>Spaghetti</b></h2>
+                      <h2 class="lead"><b>Spaghett</b></h2>
                       <p class="text-muted text-sm"><b>Spaghettis </b> com diversos molhos </p>
                      
                     </div>
@@ -159,6 +173,84 @@
                 </div>
               </div>
             </div>
+            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+              <div class="card bg-light d-flex flex-fill">
+                <div class="card-header text-muted border-bottom-0">
+                  Produto
+                </div>
+                <div class="card-body pt-0">
+                  <div class="row">
+                    <div class="col-7">
+                      <h2 class="lead"><b>Queijo grelhado</b></h2>
+                      <p class="text-muted text-sm"><b>Queijo </b> tostado e crocante com o melhor sabor</p>
+                     
+                    </div>
+                    <div class="col-5 text-center">
+                      <img src="AdminLTE-3.2.0/dist/img/queijo.jfif"  class="img-circle img-fluid">
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="text-right">
+                    <a href="cardapio.php" class="btn btn-sm btn-primary">
+                      <i ></i> Ver Cardapio
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+              <div class="card bg-light d-flex flex-fill">
+                <div class="card-header text-muted border-bottom-0">
+                  Produto
+                </div>
+                <div class="card-body pt-0">
+                  <div class="row">
+                    <div class="col-7">
+                      <h2 class="lead"><b>Tortellini</b></h2>
+                      <p class="text-muted text-sm"><b>Tortellini </b> com os melhores recheios preparados do melhor jeito</p>
+                     
+                    </div>
+                    <div class="col-5 text-center">
+                      <img src="AdminLTE-3.2.0/dist/img/tortelline.jpg"  class="img-circle img-fluid">
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="text-right">
+                    <a href="cardapio.php" class="btn btn-sm btn-primary">
+                      <i ></i> Ver Cardapio
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+              <div class="card bg-light d-flex flex-fill">
+                <div class="card-header text-muted border-bottom-0">
+                  Produto
+                </div>
+                <div class="card-body pt-0">
+                  <div class="row">
+                    <div class="col-7">
+                      <h2 class="lead"><b>Veggy</b></h2>
+                      <p class="text-muted text-sm"><b>Massa </b> de vegetais, para quem gosta de ser veggy</p>
+                     
+                    </div>
+                    <div class="col-5 text-center">
+                      <img src="AdminLTE-3.2.0/dist/img/veggy.jpg"  class="img-circle img-fluid">
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="text-right">
+                    <a href="cardapio.php" class="btn btn-sm btn-primary">
+                      <i ></i> Ver Cardapio
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
        
            
            
@@ -168,6 +260,7 @@
             
           </div>
         </div>
+        
                 <!-- /.d-flex -->
 
             <!-- /.card -->
