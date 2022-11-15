@@ -31,12 +31,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">Sapori Technology</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="home.php">Home</a></li>
-              <li class="breadcrumb-item"><a href="../php-base-3ti/home.php">Admin</a></li>
+              <li class="breadcrumb-item"><a href="../tccadmin/home.php">Admin</a></li>
              
             </ol>
           </div><!-- /.col -->
@@ -54,9 +54,9 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>Welcome</h3>
+                <h3>Bem-Vindo</h3>
 
-                <p><?php echo $f['name'];?></p>
+                <b><?php echo $f['name'];?></b>
               </div>
               
             </div>
