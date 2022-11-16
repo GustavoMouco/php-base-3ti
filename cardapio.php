@@ -126,7 +126,7 @@ $prod = mysqli_fetch_assoc($qu);
             <div class="col-12 col-sm-6">
               <h3 class="d-inline-block d-sm-none">LOWA Men’s Renegade GTX Mid Hiking Boots Review</h3>
               <div class="col-12">
-                <img src="AdminLTE-3.2.0/dist/img/cardapio2.webp" class="product-image" alt="Product Image">
+                <img src="AdminLTE-3.2.0/dist/img/cardapio.png" class="product-image" alt="Product Image">
               </div>
              
             </div>
